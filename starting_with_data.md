@@ -15,8 +15,8 @@ ORDER BY
 ```
 
 Answer: \
-*77 Products are out of stock*. See sample output below 
-![Alt text](sec4_q1_result.png)\
+*77 Products are out of stock*. See sample output below \
+![Alt text](sec4_q1_result.png)
 
 
 
