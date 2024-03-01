@@ -17,7 +17,7 @@ SELECT
 FROM
     all_sessions;
 
--- removing null values
+/* removing null values */
 SELECT
     totaltransactionrevenue,
     country,
@@ -27,7 +27,7 @@ FROM
 WHERE
     totaltransactionrevenue IS NOT NULL;
 
--- getting the sum of total transactions revenue per city per country
+/*  getting the sum of total transactions revenue per city per country */
 SELECT
     sum(totaltransactionrevenue),
     country,
@@ -203,7 +203,7 @@ ORDER BY most_sold_amount DESC;
 
 
 
-Answer: 
+Answer: \
 ![Alt text](question4_result.png)
 
 
