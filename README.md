@@ -4,7 +4,8 @@
  Welcome to my Transforming and Analyzing Data with SQL project! This is the first project in the Lighthouse Labs Data Science bootcamp, at the end of the SQL instruction.
  This project offers a chance for me to integrate all the SQL skills I have acquired so far.
 
-####Project Overview
+#### Project Overview
+
 In this project, I will amalgamate and apply the knowledge I have gained throughout this course, which includes:
 
 - Retrieving data from a SQL database
