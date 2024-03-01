@@ -223,7 +223,7 @@ too many zeroes at the end
 select min(productprice) as price from all_sessions where productprice > 0; 
 select productprice / 10000 as price from all_sessions;
 
----
+
 /*
 Given that the revenue columns contained a number of null values, to get the revenue, I multiplied
 the total number of units ordered per sku multiplied by the product price
