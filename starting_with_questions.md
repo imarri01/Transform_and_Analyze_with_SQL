@@ -212,11 +212,40 @@ Answer: \
 
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
-SQL Queries:
+SQL Queries: 
+```sql
+/* Summarise the impact of revenue generated from each city/country 
+productrevenue is useless, way too many null values
+
+I used the below query to find the lowest priced product to determine best divisor as the product prices have
+too many zeroes at the end
+*/
+select min(productprice) as price from all_sessions where productprice > 0; 
+select productprice / 10000 as price from all_sessions;
+
+---
+/*
+Given that the revenue columns contained a number of null values, to get the revenue, I multiplied
+the total number of units ordered per sku multiplied by the product price
+*/
+
+SELECT
+    COUNT(s_sku.productsku) AS productsku,
+    a_sess.country,
+    sum(s_sku.total_ordered *(a_sess.productprice / 10000)) as revenue
+FROM
+    all_sessions a_sess
+    JOIN sales_by_sku s_sku ON a_sess.productsku = s_sku.productsku
+GROUP BY
+    a_sess.country
+ORDER BY
+    COUNT(s_sku.productsku) DESC;
+```
 
 
 
-Answer:
+Answer: *The countries with the largest economies have the highest revenues or money spent, see sample below*
+![Alt text](question5_result.png)
 
 
 
