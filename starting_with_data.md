@@ -66,13 +66,70 @@ LIMIT
 Answer: 
 *The 17th, 18th and 24th of May and the 18th and 31st of August.*
 
-**Question 4:**
+**Question 4: Rank product popularity based on sentiment score**
 
 SQL Queries:
+```sql
+/* Rank product popularity based on sentiment score
+Here we used a case statement, similar to an if then else condition
+to classify the respective products based on customer sentimentscore*/
+SELECT
+    *,
+    CASE
+        WHEN sentimentscore >= 0.8 AND sentimentscore <= 1.0 THEN 'Very popular'
+        WHEN sentimentscore >= 0.6 AND sentimentscore < 0.8 THEN 'Liked'
+        WHEN sentimentscore >= 0 AND sentimentscore < 0.6 THEN 'Not so popular'
+        WHEN sentimentscore < 0 THEN 'Unpopular'
+    END AS popularity
+FROM
+    products;
+```
 
-Answer:
+Answer: \
+![Alt text](/result_screenshots/popularity.png)
 
+---
+**Question 5: Find all products where the total order is over 100 units and of those products, find the top 10 and determine which product is the most popular**
 
+SQL Queries:
+```sql
+WITH product_popularity AS (
+    SELECT
+        *,
+        CASE
+            WHEN sentimentscore >= 0.8
+            AND sentimentscore <= 1.0 THEN 'Very popular'
+            WHEN sentimentscore >= 0.6
+            AND sentimentscore < 0.8 THEN 'Liked'
+            WHEN sentimentscore >= 0
+            AND sentimentscore < 0.6 THEN 'Not so popular'
+            WHEN sentimentscore < 0 THEN 'Unpopular'
+        END AS popularity
+    FROM
+        products
+)
+SELECT
+    SUM(sbs.total_ordered) as total_cust_orders,
+    product_popularity.productsku,
+    product_popularity.product_name,
+    product_popularity.popularity
+FROM
+    product_popularity
+    JOIN sales_by_sku sbs ON sbs.productsku = product_popularity.productsku
+WHERE
+    product_popularity.popularity = 'Very popular'
+GROUP BY
+    product_popularity.productsku,
+    product_popularity.product_name,
+    product_popularity.popularity
+HAVING
+    SUM(sbs.total_ordered) > 100
+ORDER BY
+    SUM(sbs.total_ordered) DESC
+LIMIT
+    10;
+```
 
+Answer: *17 oz Stainless Steel Sport Bottle*
 
 
