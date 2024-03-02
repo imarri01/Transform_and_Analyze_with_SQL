@@ -18,7 +18,7 @@ Answer: \
 *77 Products are out of stock*. See sample output below \
 ![Alt text](sec4_q1_result.png)
 
-
+---
 
 **Question 2: Which product was the most unpopular based on sentiment score**
 
@@ -44,6 +44,7 @@ LIMIT
 Answer: *7 Dog Frisbee*
 
 
+---
 
 **Question 3: What were the 5 most popular shopping days**
 
