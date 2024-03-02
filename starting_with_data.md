@@ -97,12 +97,9 @@ WITH product_popularity AS (
     SELECT
         *,
         CASE
-            WHEN sentimentscore >= 0.8
-            AND sentimentscore <= 1.0 THEN 'Very popular'
-            WHEN sentimentscore >= 0.6
-            AND sentimentscore < 0.8 THEN 'Liked'
-            WHEN sentimentscore >= 0
-            AND sentimentscore < 0.6 THEN 'Not so popular'
+            WHEN sentimentscore >= 0.8 AND sentimentscore <= 1.0 THEN 'Very popular'
+            WHEN sentimentscore >= 0.6 AND sentimentscore < 0.8 THEN 'Liked'
+            WHEN sentimentscore >= 0 AND sentimentscore < 0.6 THEN 'Not so popular'
             WHEN sentimentscore < 0 THEN 'Unpopular'
         END AS popularity
     FROM
