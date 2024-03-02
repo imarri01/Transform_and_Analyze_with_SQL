@@ -35,4 +35,12 @@ These queries were just used to verify that there is some relationship between t
 1. Had to ignore columns with NULL values and ensure that any window function and or aggregation took this into cconsideration.
 
 ## Future Goals
-(what would you do if you had more time?)
+
+
+There are several things that come to mind as things I would love to do with more time: Improved data profiling, data standardization, advanced cleaning, performance optimization and data enrichment.
+
+- ***Better data profiling*** - Conduct an even more thorough analysis of the data to understand its structure, content, and quality. This includes identifying patterns, anomalies, missing values, and data distribution. Find the data owners, or the application owners responsible for generating the data, have them implement better data collection and data integrity methods.
+- ***Data Standardization*** - Ensure that data across different CSV files follows a consistent format, especially for fields like dates, currencies, and categorical variables. This helps in integrating and comparing data seamlessly.
+- ***Data Enrichment*** - Look for ways to add more information to the data, like adding location details, outside of country and state, calculating totals or averages independent of SQL, or using extra data from other sources to make the analysis better.
+- ***Advanced Cleaning*** - Beyond basic cleaning, apply more sophisticated techniques to handle outliers, correct errors, and impute missing values, possibly using statistical methods, machine learning algorithms or Python.
+- ***Performance Optimization:*** - Relook how the data is normalized. Some of the queries executed took a while to execute, not ideal for a production environment.
