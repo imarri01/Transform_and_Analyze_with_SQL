@@ -31,7 +31,7 @@ SELECT * FROM analytics_table atab JOIN all_sessions asess ON atab.fullvisitorid
 ```
 These queries were just used to verify that there is some relationship between the tables and could be use for querying/linking both tables. Another type of join could be used depending on the use case and question we are trying to answer.
 
-##### Answering questioins in `starting_with_questions.md` section
+##### Answering questions in `starting_with_questions.md` section
 1. Had to ignore columns with NULL values and ensure that any window function and or aggregation took this into cconsideration.
 
 ## Future Goals

@@ -1,0 +1,3 @@
+analytics raw data can be download from https://storage.googleapis.com/lhlrawfiles/analytics.csv
+
+The raw data file over 400MB which 4x the maximum allowabel files size on GitHub

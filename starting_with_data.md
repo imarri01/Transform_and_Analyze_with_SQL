@@ -65,6 +65,11 @@ LIMIT
 Answer: 
 *The 17th, 18th and 24th of May and the 18th and 31st of August.*
 
+**Question 4:**
+
+SQL Queries:
+
+Answer:
 
 
 
