@@ -1,5 +1,5 @@
 
-![Alt text](project_header.png)
+![Alt text](/images/project_header.png)
 
 ## Project/Goals
  Welcome to my Transforming and Analyzing Data with SQL project! This is the first project in the Lighthouse Labs Data Science bootcamp, at the end of the SQL instruction.

@@ -204,7 +204,7 @@ ORDER BY most_sold_amount DESC;
 
 
 Answer: \
-![Alt text](question4_result.png)
+![Alt text](/result_screenshots/question4_result.png)
 
 
 
@@ -245,7 +245,7 @@ ORDER BY
 
 
 Answer: *The countries with the largest economies have the highest revenues or money spent, see sample below*
-![Alt text](question5_result.png)
+![Alt text](/result_screenshots/question5_result.png)
 
 
 
