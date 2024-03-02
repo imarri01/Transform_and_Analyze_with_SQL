@@ -16,12 +16,12 @@ In this project, I will amalgamate and apply the knowledge I have gained through
 
 
 #### Structure of Repository
-[**`/images`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/images) - 
-[**`/raw_data`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/raw_data)
+[**`/images`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/images) - All non-query result images used in the project
+[**`/raw_data`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/raw_data) - This folder contains the CSV source data that was used in this project. The data used for the analytics table exceeds Githubs 100MB file size limit, as a result I had to upload the csv to Google Cloud Storage. The downloaded URL can be found in `analyticss.txt`.
 [**`/result_screenshots`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/result_screenshots)
-**QA.md**
-**README.md**
-**assignment.md**
+[**QA.md**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/QA.md)
+[**README.md**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/README.md)
+[**assignment.md**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/assignment.md)
 [**cleaning_data.md**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/cleaning_data.md)
 [**schema.png**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/schema.png)
 [**starting_with_data.md**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/starting_with_data.md)
