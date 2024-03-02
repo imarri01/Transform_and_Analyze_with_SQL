@@ -14,6 +14,20 @@ In this project, I will amalgamate and apply the knowledge I have gained through
 - Inserting data into a database
 - Crafting and executing a QA strategy to verify transformed data in comparison to original data
 
+
+#### Structure of Repository
+[**`/images`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/images) - 
+[**`/raw_data`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/raw_data)
+[**`/result_screenshots`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/result_screenshots)
+**QA.md**
+**README.md**
+**assignment.md**
+[**cleaning_data.md**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/cleaning_data.md)
+[**schema.png**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/schema.png)
+[**starting_with_data.md**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/starting_with_data.md)
+[**starting_with_questions**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/starting_with_questions.md)
+
+
 ## Process
 ### (your step 1)
 ### (your step 2)
