@@ -70,7 +70,8 @@ FROM
 Surprisingly the data, even though it clearly needs a lot of cleaning was able to answer most of the questions I wanted to address. `Step 6` and and `Step 7` from above was very critical. With careful crafting of CTEs and CASE statements, along with choosing the appropriate field help me in answering the respective questions. Accuracy of the query results is questionable in my opinion due to the nature of the data however, they are as accurate as possible given the assumptions used and the state of the tables.
 
 ## Challenges 
-(discuss challenges you faced in the project)
+
+The biggest challenge with this project is not having a reference to explain the role of the respective columns. A lot of assumptions were made and just enough cleaning was done to answer the questions in `starting_with_questions`. Some columns types could be easily cast but data integrity would be significantly compromised if one cleans the data without a source of reference or a source of truth in verifying ones assumptions. However, enough due care was given with the given dataset to answer the questions and build the ERD but in my opinion, the accuracy of the current results is questionable. I do believe though that the queries are fairly accurate and would behave as expected on well cleaned data.
 ##### Building the ERD
 Finding a suitable primary key for all_sessions and analytics_table was challenging. There was no field that was unique to either table containing no NULL value. The userid column was primarily NULL values so this was useless and I eventually dropped it from the table. I was able to find 2 foreign keys I could use, which I verified via a basic `INNER JOIN`, see example query below.
 ```sql
