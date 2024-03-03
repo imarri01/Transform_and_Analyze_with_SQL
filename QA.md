@@ -9,7 +9,7 @@ Before I go into the SQL specific data quality stuff that was specifically asked
 ![Alt text](/data_quality/qa_architecture.png)
 
 
-**Step 1:**
+<u>**Step 1:**</u>
 - Load CSV data in Google Cloud Storage.
 Google Cloud Storage is acting as a staging area and a data lake. The 5 CSV files were uploaded to a Google Cloud Storage bucket in their raw format. See screenshot below. 
 
@@ -22,9 +22,9 @@ Google Cloud Storage is acting as a staging area and a data lake. The 5 CSV file
 ![Alt text](/data_quality/bq_tables.png)
 
 
-**Step 3:**
+<u>**Step 3:**</u>
 - Define data quality job \
-Here is the most critical piece to the process. This is where we define our QA rules. In this example I checked for `NULL` values in the userid field in the `analytics` tbale. I also check if the `productSKU` in the `all_sessions` adhere to the format defined `GGOEG`. See yaml file that was used to define these rules. These might seem like overkill for this small project but I like to think about scale and the below file and rules can be expanded to multiple columns spanning across several tables, indicating how many records break our data quality rules/definition while flagging. See rules definition below.
+Here is the most critical piece to the process. This is where we define our QA rules. In this example I checked for `NULL` values in the `userid` field in the `analytics` table. I also checked if the `productSKU` in the `all_sessions` table adhere to the prefix format defined: `GGOEG`. See yaml file that was used to define these rules. These might seem like overkill for this small project but I like to think about scale and the below file and rules can be expanded to multiple columns spanning across several tables, indicating how many records break our data quality rules/definition. See rules definition below.
 
 ```yaml
 metadata_registry_defaults:
@@ -71,11 +71,11 @@ rule_bindings:
       - VALID_SKU
 ```
 
-**Step 4:**
+<u>**Step 4:**</u>
 - Execute Data Quality Job
 These rules are then loaded in a batch pySpark job to run again the datasets created in Step 2.
 
-**Step 5:**
+<u>**Step 5:**</u>
 - The results are then written to another BigQuery dataset, with the results of our data quality job.
 
 ![Alt text](/data_quality/dq_results.png)
@@ -124,7 +124,7 @@ RESULTS
 ---
 ## Approach 2
 
-A core component of the QA process is to have a table that has the correct schema, data types and record standards that we can use a single source of truth to compare all columns and tables against. While I didnt use any SQL specific queries in my QA process, the below SQL statements would yield a similar result. 
+A core component of the QA process is to have a table that has the correct schema, data types and record standards that we can use a single source of truth to compare all columns and tables against. While I didnt use any SQL specific queries in my QA process above, the below SQL statements would yield a similar result. 
 
 
 
