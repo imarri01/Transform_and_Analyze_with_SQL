@@ -25,15 +25,49 @@ In this project, I will amalgamate and apply the knowledge I have gained through
 [**`cleaning_data.md`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/cleaning_data.md) - Things I kept in mind while trying to clean the data along with queries used \
 [**`schema.png`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/schema.png) - The final ERD schema showing the respective between the tables. \
 [**`starting_with_data.md`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/starting_with_data.md) - Additional questions I wrote that could be answered using the dataset given. Also contained in this file are the queries I used to answer said questions. \
-[**`starting_with_questions`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/starting_with_questions.md) - Questions asked by the project creators, along with the queries used to answer said questions. \
+[**`starting_with_questions`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/starting_with_questions.md) - Questions asked by the project creators, along with the queries used to answer said questions. 
 
 
 ## Process
-### (your step 1)
-### (your step 2)
+
+Below are is the process taken to complete this project:
+1. Started out my importing the data
+2. Doing some amount of exploratory data analysis by running multiple `select * <table>` on the imported data to quickly determine tables columns with null values that should be ignored.
+3. Started with `starting_with_questions` then took note of all the roadblocks experienced in answering the questions and respectuve workarounds.
+4. Move on to starting with data and created 5 other questions that could be answered from the data without much cleaning. I avoided questions requiring computations around date and userids. The userid column was filled with null values and while I could easily cast or convert the date types, I didnt trust the data that was given.
+5. Based on my experience with #2, #3 and #4, I came up with a couple queries that I used or could be used as part of the QA process to clean up the data. I was on the fence about creating new tables or views, so I just used CTEs where needed to help answer the respective questions without having to create a new table, temp table, a view or updated the existing dataset.
+6. Using the existing tables, I ran queries similar to the one below, to identify duplicate values in the respective columns to know which column I could use a primary key or foreign key to build the ERD.
+```sql
+SELECT
+    count(productsku),
+    productsku
+FROM
+    sales_report
+GROUP BY
+    productsku
+HAVING
+    count(productsku) > 1;
+```
+7. I also ran sub-queries similar to the one below to identify the percentage of null values in columns I had concerns about from `step #2` above. If the null percentage was greater than `60` I would not use that column in my queries.
+```sql
+/* QA check null percentage in columns and if it is 0 where its all nulls or if the percentage */
+SELECT 
+    userid,
+    COALESCE(((total_rec - null_count)::float / total_rec * 100), 0) AS null_percentage
+FROM 
+    (SELECT 
+        userid, 
+        COUNT(*) AS total_rec,
+        COUNT(userid) AS null_count 
+    FROM 
+        analytics_table
+    GROUP BY 
+        userid) AS subquery;
+```
 
 ## Results
-(fill in what you discovered this data could tell you and how you used the data to answer those questions)
+
+Surprisingly the data, even though it clearly needs a lot of cleaning was able to answer most of the questions I wanted to address. `Step 6` and and `Step 7` from above was very critical. With careful crafting of CTEs and CASE statements, along with choosing the appropriate field help me in answering the respective questions. Accuracy of the query results is questionable in my opinion due to the nature of the data however, they are as accurate as possible given the assumptions used and the state of the tables.
 
 ## Challenges 
 (discuss challenges you faced in the project)
