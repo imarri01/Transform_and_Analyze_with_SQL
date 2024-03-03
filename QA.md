@@ -23,7 +23,7 @@ Google Cloud Storage is acting as a staging area and a data lake. The 5 CSV file
 
 
 **Step 3:**
-- Define data quality job
+- Define data quality job \
 Here is the most critical piece to the process. This is where we define our QA rules. In this example I checked for `NULL` values in the userid field in the `analytics` tbale. I also check if the `productSKU` in the `all_sessions` adhere to the format defined `GGOEG`. See yaml file that was used to define these rules. These might seem like overkill for this small project but I like to think about scale and the below file and rules can be expanded to multiple columns spanning across several tables, indicating how many records break our data quality rules/definition while flagging. See rules definition below.
 
 ```yaml
