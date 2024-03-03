@@ -1,4 +1,4 @@
-#### QA Approach
+#### Quality Assurance Approach
 ---
 ##### Approach 1
 
@@ -128,8 +128,12 @@ A core component of the QA process is to have a table that has the correct schem
 
 
 
-***Check for duplicate records***
+***Check for duplicate records (Primary Key ccheck)***
 ```sql
+/* A primary key should be unique, if there is more than one occurrence of the key/id
+then this field is not a primary key. This query returns ids that have multiple 
+occurrences of the same id, violating the primary key condition
+*/
 SELECT
     count(fullvisitorid),
     fullvisitorid
@@ -144,6 +148,7 @@ HAVING
 
 ***Check for NULL values***
 ```sql
+-- Count the number of times NULL occurs in a record
 SELECT
     COUNT(*) AS null_count
 FROM
@@ -157,6 +162,8 @@ WHERE
 ***Check for pattern violation***
 
 ```sql
+/* Check if productSKU starts with GGOE and if not, 
+return the number of violated SKUs, their SKU id and the respective productnames*/
 SELECT
     count(a_sess.productsku) AS total_violated_skus,
     a_sess.productsku,
