@@ -16,6 +16,7 @@ In this project, I will amalgamate and apply the knowledge I have gained through
 
 
 #### Structure of Repository
+[**`/data_quality`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/data_quality) - Data quality assets used in the QA section of the project \
 [**`/images`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/images) - All non-query result images used in the project \
 [**`/raw_data`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/raw_data) - This folder contains the CSV source data that was used in this project. The data used for the analytics table exceeds Githubs 100MB file size limit, as a result I had to upload the csv to Google Cloud Storage. The downloaded URL can be found in `analyticss.txt`. \
 [**`/result_screenshots`**](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/tree/main/result_screenshots) - Screenshots from query results executed in PgAdmin \

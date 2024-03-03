@@ -1,12 +1,3 @@
-What are your risk areas? Identify and describe them.
-
-
-
-QA Process:
-Describe your QA process and include the SQL queries used to execute it.
-
-Have a file or table that has all the standards for productsku, visitor id and so on that you can use as single source of truth for schema, datatypes and record values.
-
 #### QA Approach
 ---
 ##### Approach 1
@@ -89,7 +80,7 @@ Step 5
 
 ![Alt text](/data_quality/dq_results.png)
 
-The below query was executed against our `dq_summary` table. The JSON result is shown after the SQL, indicating that we have `376` of the total `15134` records in the `all_sessions` table that have productSKUs that failed our quality checks. It also shows that all `userid` in the `analytics` table contain `NULL` values.
+The below query was executed against our `dq_summary` table. The JSON result is shown after the SQL, indicating that we have `376` of the total `15134` records in the `all_sessions` table that have `productSKU` that failed our quality checks. It also shows that all `userid` in the `analytics` table contain `NULL` values.
 
 ```sql
 SELECT
@@ -132,3 +123,50 @@ RESULTS
 ```
 ---
 ##### Approach 2
+
+A core component of the QA process is to have a table that has the correct schema, data types and record standards that we can use a single source of truth to compare all columns and tables against. While I didnt use any SQL specific queries in my QA process, the below SQL statements would yield a similar result. 
+
+
+
+***Check for duplicate records***
+```sql
+SELECT
+    count(fullvisitorid),
+    fullvisitorid
+FROM
+    all_sessions
+GROUP BY
+    fullvisitorid
+HAVING
+    count(*) > 1;
+```
+
+
+***Check for NULL values***
+```sql
+SELECT
+    COUNT(*) AS null_count
+FROM
+    analytics_table
+WHERE
+    userid IS NULL;
+```
+
+
+
+***Check for pattern violation***
+
+```sql
+SELECT
+    count(a_sess.productsku) AS total_violated_skus,
+    a_sess.productsku,
+    prod.product_name
+FROM
+    all_sessions a_sess
+    JOIN products prod ON a_sess.productsku = prod.productsku
+WHERE
+    a_sess.productsku NOT LIKE 'GGOE%'
+GROUP BY
+    prod.product_name,
+    a_sess.productsku;
+```
