@@ -1,0 +1,42 @@
+metadata_registry_defaults:
+  dataplex:
+    projects: lhl-wk6-project
+    locations: northamerica-northeast2
+    lakes: ecommerce-lake
+    zones: user-activity-raw-zone
+row_filters:
+  NONE:
+    filter_sql_expr: |-
+      True
+rule_dimensions:
+  - consistency
+  - correctness
+  - duplication
+  - completeness
+  - conformance
+  - integrity
+  - timeliness
+  - accuracy
+rules:
+  NOT_NULL:
+    rule_type: NOT_NULL
+    dimension: completeness
+  VALID_SKU:
+    rule_type: REGEX
+    dimension: conformance
+    params:
+      pattern: |-
+        ^GGOEG*
+rule_bindings:
+  VALID_CUSTOMER:
+    entity_uri: bigquery://projects/lhl-wk6-project/datasets/lhl_ecommerce/tables/analytics
+    column_id: userid
+    row_filter_id: NONE
+    rule_ids:
+      - NOT_NULL
+  VALID_SKU_ID:
+    entity_uri: bigquery://projects/lhl-wk6-project/datasets/lhl_ecommerce/tables/all_sessions
+    column_id: productSKU
+    row_filter_id: NONE
+    rule_ids:
+      - VALID_SKU
