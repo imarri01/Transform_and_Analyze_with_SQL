@@ -16,7 +16,7 @@ Google Cloud Storage is acting as a staging area and a data lake. The 5 CSV file
 ![Alt text](/data_quality/raw_files_gcs.png)
 
 <u>**Step 2:**</u>
-- Import CSV files into BigQuery to create tables in the ecommerce dataset.
+- Import CSV files into BigQuery to create tables in the ecommerce dataset. \
 <u>*Note: Using BigQuery for this specific project is somewhat of an overkill, however its an excellent OLAP database so I wanted to get more hands on with it versus AlloyDB or another relational database service.*</u>
 
 ![Alt text](/data_quality/bq_tables.png)
