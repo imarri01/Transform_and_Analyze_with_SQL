@@ -1,23 +1,23 @@
-#### Quality Assurance Approach
+# <u>Quality Assurance Approach</u>
 ---
-##### Approach 1
+## Approach 1
 
-Before I go into the SQL specific data quality stuff that was specifically asked in the question, I created a separate process using a number of Google Cloud services, to make it closer and more relatable to my day to day work. I wanted to push myself a bit to see if I could create a somewhat automated QA/Data Quality process. The process is outline below, along with the respective results.
+Before I go into the SQL specific data quality stuff that was specifically asked in the question, I created a separate process using a number of Google Cloud services, to make it closer and more relatable to my day to day work. I wanted to push myself a bit to see if I could create a somewhat automated QA/Data Quality process. The process is outlined below, along with the respective results.
 
-###### Architecture
+### <p style="text-align: center;">Architecture
 
 ![Alt text](/data_quality/qa_architecture.png)
 
 
 **Step 1:**
 - Load CSV data in Google Cloud Storage.
-Google Cloud Storage acted a data lake. The 5 CSV files were uploaded to a Google Cloud Storage bucket in their raw format. See screenshot below. 
+Google Cloud Storage is acting as a staging area and a data lake. The 5 CSV files were uploaded to a Google Cloud Storage bucket in their raw format. See screenshot below. 
 
 ![Alt text](/data_quality/raw_files_gcs.png)
 
-**Step 2:**
+<u>**Step 2:**</u>
 - Import CSV files into BigQuery to create tables in the ecommerce dataset.
-Note: Using BigQuery for this specific project is somewhat of an overkill, however its an excellent OLAP database so I wanted to get more hands on with it versus AlloyDB or another relational database service. 
+<u>*Note: Using BigQuery for this specific project is somewhat of an overkill, however its an excellent OLAP database so I wanted to get more hands on with it versus AlloyDB or another relational database service.*</u>
 
 ![Alt text](/data_quality/bq_tables.png)
 
@@ -75,7 +75,7 @@ rule_bindings:
 - Execute Data Quality Job
 These rules are then loaded in a batch pySpark job to run again the datasets created in Step 2.
 
-Step 5
+**Step 5:**
 - The results are then written to another BigQuery dataset, with the results of our data quality job.
 
 ![Alt text](/data_quality/dq_results.png)
@@ -122,7 +122,7 @@ RESULTS
 }]
 ```
 ---
-##### Approach 2
+## Approach 2
 
 A core component of the QA process is to have a table that has the correct schema, data types and record standards that we can use a single source of truth to compare all columns and tables against. While I didnt use any SQL specific queries in my QA process, the below SQL statements would yield a similar result. 
 
