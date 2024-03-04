@@ -177,3 +177,42 @@ GROUP BY
     prod.product_name,
     a_sess.productsku;
 ```
+
+
+***Convert data type using correct format***
+```sql
+/* Convert sess_date data type from integer to date format */
+ALTER TABLE
+    all_sessions
+ALTER COLUMN
+    sess_date TYPE DATE USING to_date(to_char(sess_date, '99999999'), 'YYYYMMDD');
+
+-- verify change was made
+SELECT
+    column_name,
+    data_type
+FROM
+    information_schema.columns
+WHERE
+    table_name = 'all_sessions'
+    and column_name = 'sess_date'
+```
+
+
+***A Function to convert item price***
+***<u>Note: This query can also be used in the cleaning portan of the data. It can be sometimes tricky to determine which to do first but in my opinion, cleaning is part of QA, not the other way around. </u>*
+```sql
+CREATE OR REPLACE FUNCTION divide_price_by_million (input_price NUMERIC)
+RETURNS NUMERIC AS $$
+BEGIN
+ RETURN input_price / 1000000;
+END;
+$$ LANGUAGE plpgsql;
+
+-- call the above function
+SELECT divide_price_by_million (unit_price) AS result
+FROM analytics_table;
+
+```
+
+
