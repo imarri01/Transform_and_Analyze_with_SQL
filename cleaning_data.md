@@ -1,4 +1,4 @@
-### Question: What issues will you address by cleaning the data?
+## Question: What issues will you address by cleaning the data?
 When cleaning raw data as given in this project, several common issues are typically addressed to ensure the data is accurate, consistent, and usable for analysis or modeling. These issues include:
 
 1. **Missing Values:** Identifying and handling missing data, which might involve filling in missing values with a suitable default or removing records with missing data.
@@ -15,8 +15,9 @@ When cleaning raw data as given in this project, several common issues are typic
 
 7. **Handling Text Data:** Cleaning and preprocessing text data, including removing unnecessary characters.
 
-### Queries:
-Due to time constraint and with me leaving this section as the last section I wrote up, not all these queries were executed to clean the data before answering the questions, only a few were executed but I find it useful to include some of the queries can be used to address the above; to be used in the future.
+## Queries:
+Due to time constraint and with me leaving this section as the last section I wrote up, not all these queries were executed to clean the data before answering the questions, only a few were executed but I find it useful to include some of the queries can be used to address the above; to be used in the future. \
+Some of the other queries used for cleaning can be seen in the [QA.md](https://github.com/imarri01/lhl-proj-wk6-ramonkidd/blob/main/QA.md) section.
 
 
 ***Filling Missing values***
