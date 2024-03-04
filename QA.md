@@ -187,7 +187,7 @@ ALTER TABLE
 ALTER COLUMN
     sess_date TYPE DATE USING to_date(to_char(sess_date, '99999999'), 'YYYYMMDD');
 
--- verify change was made
+/* verify change was made */
 SELECT
     column_name,
     data_type
@@ -209,7 +209,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- call the above function
+/* call the above function */
 SELECT divide_price_by_million (unit_price) AS result
 FROM analytics_table;
 
