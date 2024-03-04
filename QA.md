@@ -148,7 +148,7 @@ HAVING
 
 ***Check for NULL values***
 ```sql
--- Count the number of times NULL occurs in a record
+/* Count the number of times NULL occurs in a record */
 SELECT
     COUNT(*) AS null_count
 FROM
