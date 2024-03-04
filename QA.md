@@ -199,7 +199,7 @@ WHERE
 ```
 
 
-***A Function to convert item price***
+***A Function to convert item price*** \
 ***<u>Note: This query can also be used in the cleaning portan of the data. It can be sometimes tricky to determine which to do first but in my opinion, cleaning is part of QA, not the other way around. </u>*
 ```sql
 CREATE OR REPLACE FUNCTION divide_price_by_million (input_price NUMERIC)
